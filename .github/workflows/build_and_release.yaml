@@ -13,7 +13,7 @@ env:
 jobs:
   fetch-aseprite-info:
     name: Fetch deps info
-    runs-on: Windows
+    runs-on: windows-latest
     outputs:
       download-link: ${{ steps.aseprite-link.outputs.download-link }}
       release-tag: ${{ steps.aseprite-link.outputs.release-tag }}
@@ -28,7 +28,7 @@ jobs:
 
   create-release:
     name: Create Release
-    runs-on: Windows
+    runs-on: windows-latest
     needs: fetch-aseprite-info
     permissions:
       contents: write
@@ -52,7 +52,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
         matrix:
-          os: [Windows]
+          os: [windows-latest]
         fail-fast: false
     steps:
       - name: Install Dependencies
